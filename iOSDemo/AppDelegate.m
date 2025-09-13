@@ -18,18 +18,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
+    // 首页
     ViewController *viewController = [[ViewController alloc] init];
+    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:viewController];
+    homeNav.tabBarItem.title = @"首页";
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    navController.tabBarItem.title = @"首页";
-    
+    // TabBar
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-        tabBarController.viewControllers = @[navController];
-
+    tabBarController.viewControllers = @[homeNav];
+    
+    // 根控制器
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
     [self.window makeKeyAndVisible];
     return YES;
 }

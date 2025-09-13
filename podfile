@@ -1,0 +1,3 @@
+target 'iOSDemo' do
+  pod 'LookinServer'
+end

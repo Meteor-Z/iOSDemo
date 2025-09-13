@@ -1,0 +1,6 @@
+Pods/
+iOSDemo.xcworkspace/*
+iOSDemo.xcodeproj/xcuserdata/*
+*.xcscheme
+Podfile.lock
+iOSDemo.xcodeproj/xcuserdata/liuzechen.xcuserdatad/xcschemes
