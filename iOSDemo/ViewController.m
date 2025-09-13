@@ -6,16 +6,42 @@
 //
 
 #import "ViewController.h"
+#import "animation/ZCAnimationViewController.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) UIButton *animationButton;
 
 @end
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.view addSubview:self.animationButton];
+}
+
+
+#pragma mark - Response Event
+
+- (void)buttonDidClick:(UIButton *)button {
+    if (button == self.animationButton) {
+        ZCAnimationViewController *animationViewController = [[ZCAnimationViewController alloc] init];
+        [self.navigationController pushViewController:animationViewController animated:YES];
+    }
+}
+
+#pragma mark - Lazy Load
+
+- (UIButton *)animationButton {
+    if (!_animationButton) {
+        _animationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 20)];
+        _animationButton.backgroundColor = [UIColor redColor];
+        [_animationButton setTitle:@"动画集合" forState:UIControlStateNormal];
+        [_animationButton addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _animationButton;
 }
 
 
